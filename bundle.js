@@ -1,23 +1,23 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-"use strict";
+const axios = require('axios');
 
-var axios = require('axios');
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+.then(response => response.json())
+.then(json => console.log(json))
 
-fetch('https://jsonplaceholder.typicode.com/todos/1').then(function (response) {
-  return response.json();
-}).then(function (json) {
-  return console.log(json);
-});
-axios.get('https://jsonplaceholder.typicode.com/todos/1').then(function (response) {
+
+axios.get('https://jsonplaceholder.typicode.com/todos/1')
+.then((response) => {
   console.log(response.data);
-}).catch(function (error) {
+})
+.catch(function (error) {
   console.log(error);
 });
 
 },{"axios":2}],2:[function(require,module,exports){
 module.exports = require('./lib/axios');
 },{"./lib/axios":4}],3:[function(require,module,exports){
-(function (process){
+(function (process){(function (){
 'use strict';
 
 var utils = require('./../utils');
@@ -199,7 +199,7 @@ module.exports = function xhrAdapter(config) {
   });
 };
 
-}).call(this,require('_process'))
+}).call(this)}).call(this,require('_process'))
 },{"../core/createError":10,"./../core/settle":13,"./../helpers/btoa":17,"./../helpers/buildURL":18,"./../helpers/cookies":20,"./../helpers/isURLSameOrigin":22,"./../helpers/parseHeaders":24,"./../utils":26,"_process":28}],4:[function(require,module,exports){
 'use strict';
 
@@ -658,7 +658,7 @@ module.exports = function transformData(data, headers, fns) {
 };
 
 },{"./../utils":26}],15:[function(require,module,exports){
-(function (process){
+(function (process){(function (){
 'use strict';
 
 var utils = require('./utils');
@@ -756,7 +756,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-}).call(this,require('_process'))
+}).call(this)}).call(this,require('_process'))
 },{"./adapters/http":3,"./adapters/xhr":3,"./helpers/normalizeHeaderName":23,"./utils":26,"_process":28}],16:[function(require,module,exports){
 'use strict';
 
